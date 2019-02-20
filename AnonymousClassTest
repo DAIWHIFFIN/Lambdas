@@ -1,0 +1,24 @@
+package uk.dmw.examples.lambdas;
+
+import java.io.File;
+import java.io.FileFilter;
+
+
+
+public class AnonymousClassTest {
+	
+	public static void main(String[] args)
+	{
+		FileFilter filefilter = new FileFilter() {
+			
+			@Override
+			public boolean accept(File file) {
+				return file.getName().endsWith(".java");
+			}
+		};
+		
+		File dir=new File("c:/tmp");
+		File[] javafiles = dir.listFiles(filefilter);
+		System.out.println(javafiles.toString());
+	}
+}
